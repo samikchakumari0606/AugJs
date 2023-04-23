@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon home page</title>
+</head>
+<body>
+    <h2>amazon home page</h2>
+    <a href="./display.html">display page</a>
+    <form id="form" onsubmit="addproduct(event)">
+        <input type="text" placeholder="product name" id="name">
+        <input type="text" placeholder="category" id="category">
+        <input type="url" placeholder="image" id="image">
+        <input type="number" placeholder="price" id="price">
+        <select id="gender">
+           <option value="male">Male</option>
+           <option value="female">Female</option>
+        </select>
+        <select id="sold">
+         <option value="false">False</option>
+         <option value="true">True</option>
+        </select>
+        <input type="submit">
+    </form>
+</body>
+</html>
+<script src="./index.js"></script>
