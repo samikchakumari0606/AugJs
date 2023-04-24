@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+</head>
+<body>
+   
+    <form id="form" >
+    <h2>Signup</h2>
+    <h4>Email</h4>
+    <input type="email" id="email" placeholder="email">
+    <h4>Password</h4>
+    <input type="password" id="password" placeholder="password">
+    <h4>Mobile no</h4>
+    <input type="number" id="mobile" placeholder="mobile no"><br>
+    <h4>Mobile no</h4>
+    <input type="submit" id="signup" value="SignUp">
+    <p>Already have an account?</p>
+    <input id="login" type="submit" value="Log In">
+    </form>
+
+    <div id="links">
+      <h4><a href="login.html">Login</a></h4>
+      <h4><a href="./SignUp.html">SignUp</a></h4>
+    </div>
+</body>
+</html>
+<script>
+    document.getElementById("form").addEventListener("submit",signUp);
+    document.getElementById("login").addEventListener("click",login);
+
+    function login(){
+        window.location.href="login.html"
+    }
+
+
+    let Arr=JSON.parse(localStorage.getItem("dataList"))||[]
+    function signUp(){
+        event.preventDefault();
+        let obj={
+            email:document.querySelector("#email").value,
+            password:document.querySelector("#password").value,
+            mobile:document.querySelector("#mobile").value,
+
+        }
+        
+        if(obj.email==""||obj.password==""||obj.mobile==""){
+            alert("All fields are mendatory");
+            return
+        }
+
+        Arr.push(obj);
+        localStorage.setItem("dataList",JSON.stringify(Arr));
+        console.log(Arr);
+        alert("Successfully SignUp")
+    }
+
+</script>

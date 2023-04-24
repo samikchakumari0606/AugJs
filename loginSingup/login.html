@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    
+    <div id="links">
+        <h4><a href="login.html">Login</a></h4>
+        <h4><a href="./SignUp.html">SignUp</a></h4>
+    </div>
+
+    <form id="form">
+    <h4>Email</h4>
+    <input placeholder="email" id="email" type="text">
+    <h4>Password</h4>
+    <input type="text" id="password" placeholder="password">
+    <h4>Login</h4>
+    <input type="submit" id="login" value="Log In"/>
+    </form>
+</body>
+</html>
+<script>
+    let form=document.querySelector("form");
+
+    let Arr=JSON.parse(localStorage.getItem("dataList"))||[]
+    form.addEventListener("submit",function(e){
+     e.preventDefault();
+
+     
+
+     let obj={
+        email:document.querySelector("#email").value,
+        password:document.querySelector("#password").value,
+     }
+     let flag=true;
+     Arr.forEach(function(elem){
+        if(elem.email===obj.email && elem.password===obj.password){
+        flag=false
+        localStorage.setItem("login",JSON.stringify(elem))
+        alert("Log in succeessfully")
+        } 
+        if(flag==true){
+            alert("User does not found")
+        }
+        if(Arr.length==0){
+        alert("fill complete details")
+        return
+        }
+        console.log("OK")
+     })
+
+    })
+</script>
