@@ -22,4 +22,5 @@ function addproduct(event) {
   amazonArr.push(obj);
 //   console.log(amazonArr);
  localStorage.setItem("product",JSON.stringify(amazonArr))
+
 }
